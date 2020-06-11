@@ -1,0 +1,8 @@
+#!/bin/sh
+sleep 3
+until ipfs pin add -r Qmexhq2sBHnXQbvyP2GfUdbnY7HCagH2Mw5vUNSBn2nxip
+do
+  echo "Waiting for ipfs to start"
+  sleep 1
+done
+echo "Pinned the webui"

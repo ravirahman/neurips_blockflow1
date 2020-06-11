@@ -1,0 +1,53 @@
+version: "3.7"
+services:
+  geth:
+    build:
+      context: "../geth"
+    command: "${GETH_ARGS}"
+    ports:
+      - "8545:8545"
+  ipfs:
+    build:
+      context: "./ipfs"
+      args:
+        - "IPFS_API_HOSTNAME"
+    volumes: 
+      - type: "volume"
+        source: "ipfs_staging"
+        target: "/export"
+      - type: "volume"
+        source: "ipfs_data"
+        target: "/data/ipfs"
+    ports:
+      - "4001:4001"
+      - "4002:4002/udp"
+      - "8080:8080"
+      - "5001:5001"
+    expose:
+      - "4001"
+      - "4002"
+  nginx:
+    build:
+      context: "./nginx"
+      args:
+        - "IPFS_GATEWAY_HOSTNAME"
+        - "IPFS_API_HOSTNAME"
+        - "GETH_HOSTNAME"
+        - "HTACCESS_USERNAME"
+        - "HTACCESS_PASSWORD"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - type: "volume"
+        source: "letsencrypt"
+        target: "/etc/letsencrypt"
+    expose:
+      - "80"
+      - "443"
+volumes:
+  ipfs_staging:
+  ipfs_data:
+  letsencrypt:
+    name: "${LETSENCRYPT_VOLUME_NAME}"
+    external: true

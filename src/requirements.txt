@@ -1,0 +1,13 @@
+vyper==0.1.0b17
+mypy==0.770
+web3==5.7.0
+coincurve==13.0.0
+cached-property==1.5.1
+dataclasses-json==0.4.2
+tensorboardX==2.0
+scikit_learn==0.22.2
+pandas==1.0.3
+sklearn_pandas==1.8.0
+ipfshttpclient==0.4.13.2
+py-cid==0.3.0
+tensorboard==2.2.1

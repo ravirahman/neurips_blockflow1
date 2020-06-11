@@ -1,0 +1,1 @@
+{"experiment_name": "adult", "dataset_parent_folder": "/data/adult/split_attack_inverted_50_quarter_validation_fraction_0.2", "apply_dp": true, "inv_lambda": 1.0, "epsilon": 0.01, "ground_truth_dataset": "/data/adult/test.dat"}

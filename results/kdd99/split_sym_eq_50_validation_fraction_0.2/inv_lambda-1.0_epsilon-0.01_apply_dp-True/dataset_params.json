@@ -1,0 +1,1 @@
+{"experiment_name": "kdd99", "dataset_parent_folder": "/data/kddcup.data/split_sym_eq_50_validation_fraction_0.2", "apply_dp": true, "inv_lambda": 1.0, "epsilon": 0.01, "ground_truth_dataset": "/data/kddcup.data/normal_test.dat"}
